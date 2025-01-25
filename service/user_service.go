@@ -27,7 +27,7 @@ type UserService interface {
 	// UploadPhoto(ID int, fileLocation string) (entity.User, error)
 	GetUserByID(ID int) (entity.User, error)
 	GetUserByRoleID(RoleID int) (entity.User, error)
-	// IsEmailAvailable(email string) (bool, error)
+	IsEmailAvailable(email string) (bool, error)
 }
 
 type userService struct {
@@ -52,16 +52,6 @@ func (s *userService) Register(input RegisterInput, fileLocation string) (entity
 	user.RoleID = 2
 	user.Phone = input.Phone
 	user.Address = input.Address
-
-	userEmail, err := s.userRepository.FindByEmail(user.Email)
-	if err != nil {
-		return user, err
-	}
-
-	if userEmail.ID != 0 {
-		return user, errors.New("email already exists")
-	}
-
 	user.Photo = fileLocation
 
 	newUser, err := s.userRepository.Save(user)
@@ -135,15 +125,15 @@ func (s *userService) GetUserByRoleID(RoleID int) (entity.User, error) {
 	return user, nil
 }
 
-// func (s *userService) IsEmailAvailable(email string) (bool, error) {
-// 	user, err := s.userRepository.FindByEmail(email)
-// 	if err != nil {
-// 		return false, err
-// 	}
+func (s *userService) IsEmailAvailable(email string) (bool, error) {
+	user, err := s.userRepository.FindByEmail(email)
+	if err != nil {
+		return false, err
+	}
 
-// 	if user.ID == 0 {
-// 		return true, nil
-// 	}
+	if user.ID == 0 {
+		return true, nil
+	}
 
-// 	return false, nil
-// }
+	return false, nil
+}

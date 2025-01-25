@@ -32,19 +32,20 @@ func (h *userController) Register(c *gin.Context) {
 		return
 	}
 
-	// isEmailAvailable, err := h.userService.IsEmailAvailable(input.Email)
-	// if err != nil {
-	// 	errorMessage := gin.H{"errors": "Server error"}
-	// 	response := helper.APIResponse("Email checking failed", http.StatusUnprocessableEntity, "error", errorMessage)
-	// 	c.JSON(http.StatusUnprocessableEntity, response)
-	// 	return
-	// }
+	isEmailAvailable, err := h.userService.IsEmailAvailable(input.Email)
+	if err != nil {
+		errorMessage := gin.H{"errors": "Email checking failed"}
+		response := helper.APIResponse("Register account failed", http.StatusUnprocessableEntity, "error", errorMessage)
+		c.JSON(http.StatusUnprocessableEntity, response)
+		return
+	}
 
-	// if !isEmailAvailable {
-	// 	errorMessage := gin.H{"errors": "Email is not available"}
-	// 	response := helper.APIResponse("Email is not available", http.StatusBadRequest, "error", errorMessage)
-	// 	c.JSON(http.StatusBadRequest, response)
-	// }
+	if !isEmailAvailable {
+		errorMessage := gin.H{"errors": "Email already been used"}
+		response := helper.APIResponse("Register account failed", http.StatusBadRequest, "error", errorMessage)
+		c.JSON(http.StatusBadRequest, response)
+		return
+	}
 
 	file, err := c.FormFile("photo")
 	if err != nil {
