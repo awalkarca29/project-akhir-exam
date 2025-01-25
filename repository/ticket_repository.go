@@ -25,7 +25,7 @@ func NewTicketRepository(db *gorm.DB) *ticketRepository {
 func (r *ticketRepository) GetByEventID(EventID int) ([]entity.Ticket, error) {
 	var tickets []entity.Ticket
 
-	err := r.db.Where("event_id = ?", EventID).Order("id desc").Find(&tickets).Error
+	err := r.db.Preload("User").Where("event_id = ?", EventID).Order("id desc").Find(&tickets).Error
 	// err := r.db.Preload("User").Preload("Product").Where("product_id = ?", productID).Order("id desc").Find(&tickets).Error
 	if err != nil {
 		return tickets, err
