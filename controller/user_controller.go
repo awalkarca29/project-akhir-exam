@@ -57,7 +57,6 @@ func (h *userController) Register(c *gin.Context) {
 	}
 
 	path := fmt.Sprintf("public/user/%d-%s", rand.Int(), file.Filename)
-	// path := fmt.Sprintf("public/product/%d-%s", input.ProductID, file.Filename)
 
 	err = c.SaveUploadedFile(file, path)
 	if err != nil {
