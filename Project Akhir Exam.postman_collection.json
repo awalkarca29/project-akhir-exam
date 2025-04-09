@@ -1,0 +1,659 @@
+{
+	"info": {
+		"_postman_id": "d4c63a5d-1286-437d-bc12-df831ac76276",
+		"name": "Project Akhir Exam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13663484"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "awal",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "awal@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "081333333334",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "jalan awal",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/Awwalul/Downloads/gambar dummy/SOBATPSMOBILE.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ad@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Photo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8080/photo/115393660701280525-HITAM.jpg",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"photo",
+								"115393660701280525-HITAM.jpg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "Get All Events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/events",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Event By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/events/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlX2lkIjoxLCJ1c2VyX2lkIjoxfQ.6rT6ErJgrzu7aKXs-UYew5704KiTHERZx57pRgbBW0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Bioskop",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Tiket Bioskop",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "50000",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Awwalul/Downloads/gambar dummy/VBG.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/events",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlX2lkIjoxLCJ1c2VyX2lkIjoxfQ.6rT6ErJgrzu7aKXs-UYew5704KiTHERZx57pRgbBW0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Bioskop ganti",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Tiket Bioskop ganti",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "55000",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "55",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/events/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlX2lkIjoxLCJ1c2VyX2lkIjoxfQ.6rT6ErJgrzu7aKXs-UYew5704KiTHERZx57pRgbBW0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/events/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Event Image",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8080/image/4272650297752165383-VBG.png",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"4272650297752165383-VBG.png"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticket",
+			"item": [
+				{
+					"name": "Get Tickets By Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlX2lkIjoxLCJ1c2VyX2lkIjoxfQ.6rT6ErJgrzu7aKXs-UYew5704KiTHERZx57pRgbBW0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/events/3/tickets",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"3",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tickets By User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlX2lkIjoyLCJ1c2VyX2lkIjoyfQ.9s4IbYtcWA6k8_ZEbqdehXY1FgYZuQOlDi7ION5mKik",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tickets",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ticket By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlX2lkIjoyLCJ1c2VyX2lkIjoyfQ.9s4IbYtcWA6k8_ZEbqdehXY1FgYZuQOlDi7ION5mKik",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tickets/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tickets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Ticket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlX2lkIjoyLCJ1c2VyX2lkIjoyfQ.9s4IbYtcWA6k8_ZEbqdehXY1FgYZuQOlDi7ION5mKik",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"event_id\": 5,\r\n    \"quantity\": 3,\r\n    \"payment_method\": \"ovo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tickets",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mark Paid",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlX2lkIjoyLCJ1c2VyX2lkIjoyfQ.9s4IbYtcWA6k8_ZEbqdehXY1FgYZuQOlDi7ION5mKik",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tickets/2/pay",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tickets",
+								"2",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mark Cancel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlX2lkIjoyLCJ1c2VyX2lkIjoyfQ.9s4IbYtcWA6k8_ZEbqdehXY1FgYZuQOlDi7ION5mKik",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tickets/1/cancel",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tickets",
+								"1",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "X Mark Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlX2lkIjoxLCJ1c2VyX2lkIjoxfQ.6rT6ErJgrzu7aKXs-UYew5704KiTHERZx57pRgbBW0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"shipped\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tickets/2/status",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tickets",
+								"2",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Report Summary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlX2lkIjoxLCJ1c2VyX2lkIjoxfQ.6rT6ErJgrzu7aKXs-UYew5704KiTHERZx57pRgbBW0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/reports/summary",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								"summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlX2lkIjoxLCJ1c2VyX2lkIjoxfQ.6rT6ErJgrzu7aKXs-UYew5704KiTHERZx57pRgbBW0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/reports/event?id=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								"event"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
